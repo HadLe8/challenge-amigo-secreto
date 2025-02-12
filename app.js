@@ -11,15 +11,17 @@ function campoNombre(){ // escribir nombre
 
 function agregarAmigo(){
     let entradaUsuario = document.getElementById('amigo').value;
-    asignarTextoElemento('h2',entradaUsuario);
+    asignarTextoElemento('#listaAmigos',entradaUsuario); //
     amigos.push(entradaUsuario);
-    return;
-    
 }
 console.log(amigos);
+//limpiarCampo();
+
+
 
 function sortearAmigo(){
-
+    
+    //asignarTextoElemento('#resultado',nombreSorteado);
 }
 
 function limpiarCampo(){
