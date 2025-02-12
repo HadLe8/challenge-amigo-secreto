@@ -13,9 +13,10 @@ function agregarAmigo(){
     let entradaUsuario = document.getElementById('amigo').value;
     asignarTextoElemento('#listaAmigos',entradaUsuario); //
     amigos.push(entradaUsuario);
+    limpiarCampo();
 }
 console.log(amigos);
-//limpiarCampo();
+
 
 
 
@@ -25,7 +26,7 @@ function sortearAmigo(){
 }
 
 function limpiarCampo(){
-    document.querySelector('amigo').value = '';
+    document.querySelector('#amigo').value = '';
 }
 
 function asignarTextoElemento(elemento, texto) {
