@@ -2,8 +2,6 @@
 let amigos=[];
 
 
-
-
 function campoNombre(){ // escribir nombre
     
     
@@ -15,10 +13,6 @@ function agregarAmigo(){
     amigos.push(entradaUsuario);
     limpiarCampo();
 }
-console.log(amigos);
-
-
-
 
 function sortearAmigo(){
     
