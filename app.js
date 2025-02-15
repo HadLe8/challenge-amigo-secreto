@@ -2,6 +2,10 @@
 let amigos=[];
 let amigosCopia=[];
 
+function limpiarCampo(id){
+    document.querySelector(id).value = '';
+}
+
 function agregarAmigo(){
     let entradaUsuario = document.getElementById('amigo').value;
     asignarTextoElemento('#listaAmigos',entradaUsuario); // usar la función para imprimir en el elemento
@@ -10,15 +14,11 @@ function agregarAmigo(){
 }
 
 function sortearAmigo(){
-    limpiarCampo('#listaAmigos');
-    amigosCopia= amigos.slice(); // copiar matriz
-    //compara si la posición del arreglo es positivo o negativo y lo ordena
-    nombreSorteado= amigosCopia.sort(() => Math.random() - 0.5);  //Genera un numero aleatorio entre -0.5 y 0.5(equilibrio entre positivos y negativos)
-    asignarTextoElemento('#resultado',nombreSorteado[0]);
-}
-
-function limpiarCampo(id){
-    document.querySelector(id).value = '';
+    asignarTextoElemento('#listaAmigos'," "); // Limpia el contenido de #listaAmigos
+    amigosCopia = amigos.slice(); // Copia el array de amigos
+    nombreSorteado = amigosCopia.sort(() => Math.random() - 0.5); //sortea posiciones aleatoriamente
+    asignarTextoElemento('#resultado', nombreSorteado[0]);
+    
 }
 
 function asignarTextoElemento(elemento, texto) {
