@@ -3,16 +3,19 @@ let amigosCopia=[];
 
 
 function agregarAmigo(){
+    //Borrar resultado del juego anterior
+    asignarTextoElemento('#resultado'," "); 
     //Obtener la entrada de usuario
     let entradaUsuario = document.getElementById('amigo').value;
-    if(entradaUsuario == ''){
+    if(entradaUsuario == ''|| !/^[a-zA-Z]+$/.test(entradaUsuario) ){
         alert("Ingresa un nombre válido");
     }else{
-        let nuevoElemento = document.createElement('div');
+        // Obtener el contenedor donde se mostrarán los nombres- nodo padre
+        let listaAmigos = document.getElementById('listaAmigos');  
+        // Crear un nodo hijo
+        let nuevoElemento = document.createElement('li');
         nuevoElemento.textContent = entradaUsuario;
-        // Obtener el contenedor donde se mostrarán los nombres
-        let listaAmigos = document.getElementById('listaAmigos');   
-        // Agregar el nuevo elemento al contenedor
+        // Agregar el nuevo elemento al contenedor- pilar
         listaAmigos.appendChild(nuevoElemento);
         //añadir elementos al array
         amigos.push(entradaUsuario);
@@ -23,7 +26,8 @@ function agregarAmigo(){
 }
 
 function sortearAmigo(){
-    if(amigos == ''){
+    asignarTextoElemento('#resultado'," "); 
+    if(amigos == '' ){
         alert("Aún no se han agregado nombres");
     }else{
         // Limpia el contenido de #listaAmigos
@@ -35,7 +39,14 @@ function sortearAmigo(){
         //Muestra la primera posición del array sorteado
         asignarTextoElemento('#resultado', nombreSorteado[0]);
     }
+    reiniciarJuego();
     return;
+}
+
+function reiniciarJuego(){
+    //limpiar array para una nueva jugada
+    amigos= [];
+    amigosCopia=[];
 }
 
 function asignarTextoElemento(elemento, texto) {
