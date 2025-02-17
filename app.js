@@ -1,10 +1,10 @@
 let amigos=[];
 let amigosCopia=[];
 
-
 function agregarAmigo(){
+    //Obtener la entrada de usuario
     let entradaUsuario = document.getElementById('amigo').value;
-    if (entradaUsuario == ''){
+    if(entradaUsuario == ''){
         alert("Ingresa un nombre válido");
     }else{
         // usar la función para imprimir en el elemento
@@ -18,16 +18,19 @@ function agregarAmigo(){
 }
 
 function sortearAmigo(){
-    // Limpia el contenido de #listaAmigos
-    asignarTextoElemento('#listaAmigos'," "); 
-     // Copia el array de amigos
-    amigosCopia = amigos.slice();
-    //Sortea posiciones aleatoriamente
-    nombreSorteado = amigosCopia.sort(() => Math.random() - 0.5); 
-    //Muestra la primera posición del array sorteado
-    asignarTextoElemento('#resultado', nombreSorteado[0]);
+    if(amigos == ''){
+        alert("Aún no se han agregado nombres");
+    }else{
+        // Limpia el contenido de #listaAmigos
+        asignarTextoElemento('#listaAmigos'," "); 
+        // Copia el array de amigos
+        amigosCopia = amigos.slice();
+        //Sortea posiciones aleatoriamente
+        nombreSorteado = amigosCopia.sort(() => Math.random() - 0.5); 
+        //Muestra la primera posición del array sorteado
+        asignarTextoElemento('#resultado', nombreSorteado[0]);
+    }
     return;
-    
 }
 
 function asignarTextoElemento(elemento, texto) {
