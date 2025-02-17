@@ -1,14 +1,19 @@
 let amigos=[];
 let amigosCopia=[];
 
+
 function agregarAmigo(){
     //Obtener la entrada de usuario
     let entradaUsuario = document.getElementById('amigo').value;
     if(entradaUsuario == ''){
         alert("Ingresa un nombre válido");
     }else{
-        // usar la función para imprimir en el elemento
-        asignarTextoElemento('#listaAmigos',entradaUsuario); 
+        let nuevoElemento = document.createElement('div');
+        nuevoElemento.textContent = entradaUsuario;
+        // Obtener el contenedor donde se mostrarán los nombres
+        let listaAmigos = document.getElementById('listaAmigos');   
+        // Agregar el nuevo elemento al contenedor
+        listaAmigos.appendChild(nuevoElemento);
         //añadir elementos al array
         amigos.push(entradaUsuario);
         //limpiar entrada usuario
